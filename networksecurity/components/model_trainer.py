@@ -22,7 +22,9 @@ from sklearn.ensemble import (
 )
 import mlflow
 import joblib
-
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 import dagshub
 dagshub.init(repo_owner='akashdeepsingh-DS', repo_name='networksecurity', mlflow=True)
 
@@ -36,22 +38,37 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def track_mlflow(self,best_model,classificationmetric):
-        with mlflow.start_run():
-            f1_score=classificationmetric.f1_score
-            precision_score=classificationmetric.precision_score
-            recall_score=classificationmetric.recall_score
+    def track_mlflow(self, best_model, best_model_name,
+                 classification_train_metric,
+                 classification_test_metric):
 
-            mlflow.log_metric("f1_score",f1_score)
-            mlflow.log_metric("precision",precision_score)
-            mlflow.log_metric("recall_score",recall_score)
-            
-            # Save model locally first
+        mlflow.set_experiment("NetworkSecurity-Phishing-Detection")
+
+        with mlflow.start_run():
+
+            # Log Model Name
+            mlflow.log_param("model_name", best_model_name)
+
+            # Log Model Parameters
+            for param, value in best_model.get_params().items():
+                mlflow.log_param(param, value)
+
+            # Log Train Metrics
+            mlflow.log_metric("train_f1_score", classification_train_metric.f1_score)
+            mlflow.log_metric("train_precision", classification_train_metric.precision_score)
+            mlflow.log_metric("train_recall", classification_train_metric.recall_score)
+
+            # Log Test Metrics
+            mlflow.log_metric("test_f1_score", classification_test_metric.f1_score)
+            mlflow.log_metric("test_precision", classification_test_metric.precision_score)
+            mlflow.log_metric("test_recall", classification_test_metric.recall_score)
+
+            # Save model locally
             os.makedirs("mlflow_model", exist_ok=True)
             model_path = "mlflow_model/model.pkl"
             joblib.dump(best_model, model_path)
 
-            # Log artifact (WORKS with DagsHub)
+            # Log model artifact
             mlflow.log_artifact(model_path, artifact_path="model")
 
 
@@ -101,17 +118,64 @@ class ModelTrainer:
             list(model_report.values()).index(best_model_score)
         ]
         best_model = models[best_model_name]
-        y_train_pred=best_model.predict(X_train)
 
-        classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
+        # -------------------------
+        # Predictions
+        # -------------------------
+        y_train_pred = best_model.predict(X_train)
+        y_test_pred = best_model.predict(x_test)
 
-        ## Track the experiments with mlflow
-        self.track_mlflow(best_model,classification_train_metric)
+        classification_train_metric = get_classification_score(
+            y_true=y_train,
+            y_pred=y_train_pred
+        )
 
-        y_test_pred=best_model.predict(x_test)
-        classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
-        
-        self.track_mlflow(best_model,classification_test_metric)
+        classification_test_metric = get_classification_score(
+            y_true=y_test,
+            y_pred=y_test_pred
+        )
+
+        # -------------------------
+        # MLflow Tracking (Single Run)
+        # -------------------------
+        mlflow.set_experiment("NetworkSecurity-Phishing-Detection")
+
+        with mlflow.start_run():
+
+            # Log model name
+            mlflow.log_param("model_name", best_model_name)
+
+            # Log hyperparameters
+            for param_name, param_value in best_model.get_params().items():
+                mlflow.log_param(param_name, param_value)
+
+            # Log train metrics
+            mlflow.log_metric("train_f1_score", classification_train_metric.f1_score)
+            mlflow.log_metric("train_precision", classification_train_metric.precision_score)
+            mlflow.log_metric("train_recall", classification_train_metric.recall_score)
+
+            # Log test metrics
+            mlflow.log_metric("test_f1_score", classification_test_metric.f1_score)
+            mlflow.log_metric("test_precision", classification_test_metric.precision_score)
+            mlflow.log_metric("test_recall", classification_test_metric.recall_score)
+
+            # Log confusion matrix
+            cm = confusion_matrix(y_test, y_test_pred)
+
+            plt.figure()
+            sns.heatmap(cm, annot=True, fmt="d")
+            plt.title("Confusion Matrix")
+            plt.xlabel("Predicted")
+            plt.ylabel("Actual")
+            plt.savefig("Artifacts\confusion_matrix.png")
+            mlflow.log_artifact("Artifacts\confusion_matrix.png")
+            plt.close()
+
+            # Save model locally and log
+            os.makedirs("mlflow_model", exist_ok=True)
+            model_path = "mlflow_model/model.pkl"
+            joblib.dump(best_model, model_path)
+            mlflow.log_artifact(model_path, artifact_path="model")
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
 
@@ -130,6 +194,7 @@ class ModelTrainer:
                              test_metric_artifact=classification_test_metric,)
         
         logging.info(f"Model trainer artifact: {model_trainer_artifact}")
+        
         return model_trainer_artifact
                             
 

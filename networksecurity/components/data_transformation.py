@@ -38,12 +38,6 @@ class DataTransformation:
         """
         It initializes a KNNImputer object with the parameters specified in the training_pipeline.py file and returns
         a pipeline object with the KNNImputer object as the first step.
-
-        Args:
-          cls: DataTransformation
-
-        Returns:
-          A Pipeline object
         """
         logging.info(
             "Entered get_data_transformer_object method of Transformation class"

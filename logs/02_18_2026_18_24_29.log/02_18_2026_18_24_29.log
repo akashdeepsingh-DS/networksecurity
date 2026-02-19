@@ -1,0 +1,182 @@
+[ 2026-02-18 18:24:36,507 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-02-18 18:24:36,519 ] 107 dagshub - INFO - Accessing as akashdeepsingh-DS
+[ 2026-02-18 18:24:36,771 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/akashdeepsingh-DS/networksecurity "HTTP/1.1 200 OK"
+[ 2026-02-18 18:24:36,974 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-02-18 18:24:36,977 ] 107 dagshub - INFO - Initialized MLflow to track repo "akashdeepsingh-DS/networksecurity"
+[ 2026-02-18 18:24:36,986 ] 107 dagshub - INFO - Repository akashdeepsingh-DS/networksecurity initialized!
+[ 2026-02-18 18:24:54,782 ] 33 root - INFO - Start data Ingestion
+[ 2026-02-18 18:24:57,549 ] 63 root - INFO - performed train test split on the dataframe
+[ 2026-02-18 18:24:57,549 ] 64 root - INFO - Exited split_data_as_train_test method of Data_ingestion class
+[ 2026-02-18 18:24:57,549 ] 70 root - INFO - Exporting train and test file path.
+[ 2026-02-18 18:24:57,688 ] 80 root - INFO - Exported train and test file path
+[ 2026-02-18 18:24:57,690 ] 36 root - INFO - Data Ingestion completed and artifact: DataIngestionArtifact(trained_file_path='Artifacts\\02_18_2026_18_24_30\\data_ingestion\\ingested\\train.csv', test_file_path='Artifacts\\02_18_2026_18_24_30\\data_ingestion\\ingested\\test.csv')
+[ 2026-02-18 18:24:57,728 ] 46 root - INFO - Initiate the data Validation
+[ 2026-02-18 18:24:57,861 ] 32 root - INFO - Required number of columns:31
+[ 2026-02-18 18:24:57,861 ] 33 root - INFO - Data frame as columns:31
+[ 2026-02-18 18:24:57,861 ] 32 root - INFO - Required number of columns:31
+[ 2026-02-18 18:24:57,861 ] 33 root - INFO - Data frame as columns:31
+[ 2026-02-18 18:24:58,216 ] 56 root - INFO - Entered initiate_data_transformation method of DataTransformation class
+[ 2026-02-18 18:24:58,216 ] 58 root - INFO - Starting data transformation
+[ 2026-02-18 18:24:58,254 ] 42 root - INFO - Entered get_data_transformer_object method of Transformation class
+[ 2026-02-18 18:24:58,254 ] 47 root - INFO - Initialise KNNImputer with {'missing_values': nan, 'n_neighbors': 3, 'weights': 'uniform'}
+[ 2026-02-18 18:24:58,289 ] 46 root - INFO - Entered the save object method of Main utils class
+[ 2026-02-18 18:24:58,299 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-02-18 18:24:58,299 ] 46 root - INFO - Entered the save object method of Main utils class
+[ 2026-02-18 18:24:58,306 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-02-18 18:33:00,007 ] 46 root - INFO - Entered the save object method of Main utils class
+[ 2026-02-18 18:33:00,055 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-02-18 18:33:00,055 ] 46 root - INFO - Entered the save object method of Main utils class
+[ 2026-02-18 18:33:00,103 ] 50 root - INFO - Exited the save_object method of MainUtils class
+[ 2026-02-18 18:33:00,103 ] 196 root - INFO - Model trainer artifact: ModelTrainerArtifact(trained_model_file_path='Artifacts\\02_18_2026_18_24_30\\model_trainer\\trained_model\\model.pkl', train_metric_artifact=ClassificationMetricArtifact(f1_score=0.9910678034916768, precision_score=0.9892603850050659, recall_score=0.9928818385194225), test_metric_artifact=ClassificationMetricArtifact(f1_score=0.9747697236684021, precision_score=0.9681782020684169, recall_score=0.9814516129032258))
+[ 2026-02-18 18:33:00,122 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,154 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,154 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,164 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,164 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,170 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,174 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,177 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,181 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,185 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,188 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,188 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,196 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,200 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,200 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,205 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,205 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,211 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+[ 2026-02-18 18:33:00,215 ] 1729 asyncio - ERROR - Exception in callback _ProactorBasePipeTransport._call_connection_lost(None)
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost(None)>
+Traceback (most recent call last):
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Users\Akashdeep Singh\Desktop\Network_Security_project\venv\lib\asyncio\proactor_events.py", line 162, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
