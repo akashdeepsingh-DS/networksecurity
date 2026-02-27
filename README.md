@@ -29,7 +29,9 @@ The goal is to build a machine learning model that classifies a website as:
 The system is designed to be scalable, modular, and reliable.
 
 ## System Architecture
-👉 Insert your Overall Project Architecture Diagram here
+
+![Alt text](images\project_flow.jpg)
+<img src="images\project_flow.jpg" width="850" alt="Project banner">
 
 Pipeline Flow:
 Data Ingestion → Data Validation → Data Transformation → 
@@ -45,7 +47,8 @@ Each stage produces artifacts that are consumed by the next stage.
 - Stored in feature store
 - Split into training and testing datasets
 
-👉 Insert Data Ingestion Architecture Diagram here
+![Alt text](images\data_ingestion.jpg)
+<img src="images\data_ingestion.jpg" width="600" alt="App screenshot">
 
 2. Data Validation
 - Schema validation using YAML
@@ -54,7 +57,8 @@ Each stage produces artifacts that are consumed by the next stage.
 - Data drift detection using Kolmogorov–Smirnov test
 - Drift report generated as YAML
 
-👉 Insert Data Validation Architecture Diagram here
+![Alt text](images\data_validation.jpg)
+<img src="images\data_validation.jpg" width="600" alt="App screenshot">
 
 Why this matters:
 Ensures data quality before training and prevents garbage-in-garbage-out.
@@ -66,7 +70,8 @@ Ensures data quality before training and prevents garbage-in-garbage-out.
 - Transformed NumPy arrays saved
 - Preprocessing object saved (preprocessor.pkl)
 
-👉 Insert Data Transformation Architecture Diagram here
+![Alt text](images\data_transformation.jpg)
+<img src="images\data_transformation.jpg" width="600" alt="App screenshot">
 
 Design Choice:
 Using Pipeline prevents data leakage between training and testing.
@@ -87,7 +92,8 @@ Using Pipeline prevents data leakage between training and testing.
 - Experiment tracking with MLflow
 - Model saved as artifact
 
-👉 Insert Model Trainer Architecture Diagram here
+![Alt text](images\model_trainer.jpg)
+<img src="images\model_trainer.jpg" width="600" alt="App screenshot">
 
 Why F1 Score?
 Phishing datasets are often imbalanced. F1 balances precision and recall.
