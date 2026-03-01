@@ -261,7 +261,9 @@ http://localhost:8000/docs
 ## 👨‍💻 Author
 
 Akash Deep Singh
+
 Post-Graduate Diploma in Big Data Analytics and Artificial Intelligence
+
 Georgian College, Canada
 
 Aspiring Data Scientist / ML Engineer specializing in AI.
